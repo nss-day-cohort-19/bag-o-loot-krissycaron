@@ -29,13 +29,14 @@ namespace BagOLoot
 
                 try
                 {
-                    // Try to run the query. If it throws an exception, create the table
+                    // This means : Try to run the query. If it throws an exception, create the table
                     using (SqliteDataReader reader = dbcmd.ExecuteReader())
                     {
                         
                     }
                     dbcmd.Dispose ();
                 }
+                //This is the catch after code tries to run, catch the exception and gives a command of what to do. 
                 catch (Microsoft.Data.Sqlite.SqliteException ex)
                 {
                     Console.WriteLine(ex.Message);

@@ -27,13 +27,15 @@ namespace BagOLoot
                 // Insert the new child
                 dbcmd.CommandText = $"insert into child values (null, '{child}', 0)";
                 Console.WriteLine(dbcmd.CommandText);
+                //selecting not querying. 
                 dbcmd.ExecuteNonQuery ();
 
-                // Get the id of the new row
+                // Get the id of the new row that was added to the database. includes the auto created Id
                 dbcmd.CommandText = $"select last_insert_rowid()";
                 using (SqliteDataReader dr = dbcmd.ExecuteReader()) 
                 {
                     if (dr.Read()) {
+                        //dr =data reader .. select the column ,,, which is a 0 based list 0= column 1, 1 = cl 2 ....
                         _lastId = dr.GetInt32(0);
                     } else {
                         throw new Exception("Unable to insert value");
