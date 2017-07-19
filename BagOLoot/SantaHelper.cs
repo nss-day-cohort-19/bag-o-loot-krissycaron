@@ -16,6 +16,7 @@ namespace BagOLoot
 
         public List<int> getChildsToyList(int childId)
         { 
+            //the below is a list of childs toyid's. 
             return new List<int>() {2,4,6,7,8};
         } 
 

@@ -34,6 +34,9 @@ namespace BagOLoot
                 dbcmd.CommandText = $"select last_insert_rowid()";
                 using (SqliteDataReader dr = dbcmd.ExecuteReader()) 
                 {
+                    
+
+
                     //if I am able to read the data, insert the data 
                     if (dr.Read()) {
                         //dr =data reader .. select the column ,,, which is a 0 based list 0= column 1, 1 = cl 2 ....
@@ -53,6 +56,27 @@ namespace BagOLoot
 
         public List<string> GetChildren ()
         {
+            using (_connection)
+            {
+                _connection.Open();
+                SqliteCommand dbcmd = _connection.CreateCommand();
+
+                //select the id and name of every child 
+                dbcmd.CommandText = "select id, name from child";
+ 
+                using (SqliteDataReader dr = dbcmd.ExecuteReader())
+                {
+                    // Read Each Row in the result set. 
+                    while (dr.Read())
+                    {
+                        _children.Add(dr[0].ToString()); //add child name to list
+                    }
+                }
+
+                dbcmd.Dispose();
+                _connection.Close();
+
+            }
             return new List<string>();
         }
 
