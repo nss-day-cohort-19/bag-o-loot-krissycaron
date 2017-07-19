@@ -26,6 +26,11 @@ namespace BagOLoot
         {
             return new List <int>() {4,6,7,8};
         }
+
+        public List <int> childsToyList(int childId)
+        {
+            return new List <int>(){3,4,5,6,7};
+        }
         
     }
 }
