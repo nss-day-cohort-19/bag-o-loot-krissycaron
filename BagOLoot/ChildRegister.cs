@@ -34,6 +34,7 @@ namespace BagOLoot
                 dbcmd.CommandText = $"select last_insert_rowid()";
                 using (SqliteDataReader dr = dbcmd.ExecuteReader()) 
                 {
+                    //if I am able to read the data, insert the data 
                     if (dr.Read()) {
                         //dr =data reader .. select the column ,,, which is a 0 based list 0= column 1, 1 = cl 2 ....
                         _lastId = dr.GetInt32(0);
