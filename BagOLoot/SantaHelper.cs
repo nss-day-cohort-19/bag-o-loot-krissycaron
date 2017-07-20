@@ -40,5 +40,11 @@ namespace BagOLoot
         {
 
         }
+
+        public bool ToyWasDelivered(int childId)
+        {
+            return true;   
+        }
+
     }
 }

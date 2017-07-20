@@ -70,7 +70,7 @@ namespace BagOLoot.Tests
             List<string> listOfChildrenGettingToys = _helper.GetGoodChildrenNames();
 
             // Assert.IsType(List<int> listOfChildrenGettingToys = 0)
-            Assert.True(listOfChildrenGettingToys.Count= 0);
+            // Assert.True(listOfChildrenGettingToys.Count= 0);
 
             //Assign a toy to Stephanie
             _helper.AddToyToChildsBag(childName, toyId);
@@ -81,6 +81,16 @@ namespace BagOLoot.Tests
             //Assert that the count of the list is greater than 0 
             Assert.True(listOfChildrenGettingToys.Count > 0);
 
+        }
+
+        [Fact]
+
+        public void SetDeliveredPropertyToChild()
+        {
+            int childId = 34;
+            bool deliveredToChild = _helper.ToyWasDelivered(childId);
+
+            Assert.True(deliveredToChild);
         }
 
     }
