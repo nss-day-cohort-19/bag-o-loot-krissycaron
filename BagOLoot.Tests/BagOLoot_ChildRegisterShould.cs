@@ -7,16 +7,18 @@ namespace BagOLoot.Tests
     public class ChildRegisterShould
     {
         private readonly ChildRegister _register;
-
+//this test is registering a child, it should take the below strings and be able to return them. 
         public ChildRegisterShould()
         {
             _register = new ChildRegister();
         }
-
+// DUMMY DATA 
         [Theory]
         [InlineData("Sarah")]
         [InlineData("Jamal")]
         [InlineData("Kelly")]
+
+
         public void AddChildren(string child)
         {
             var result = _register.AddChild(child);
@@ -28,6 +30,8 @@ namespace BagOLoot.Tests
         {
             var result = _register.GetChildren();
             Assert.IsType<List<string>>(result);
+
+
         }
     }
 }
